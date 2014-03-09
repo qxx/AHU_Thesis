@@ -1,0 +1,55 @@
+﻿
+\chapter{表格}
+\label{chap:tab}
+标准三线表：
+\begin{table}[!ht]
+\label{tab:table3}
+\caption{三线表格示例}
+\centering
+\begin{tabular}{c c c c}
+\whline 一列 & 两列 & 三列 & 四列  \\\hline
+1 & 2 &3 &4 \\2 & 3 &4 &5 \\3 & 4 &5 &6 \\
+\whline
+\end{tabular}
+\end{table}
+\begin{code}
+    \begin{table}[!ht]
+    \label{tab:table3}
+    \caption{三线表格示例}
+    \centering
+    \begin{tabular}{c c c c}
+        \whline 一列 & 两列 & 三列 & 四列  \\\whline
+        1 & 2 &3 &4 \\2 & 3 &4 &5 \\3 & 4 &5 &6 \\
+        \whline
+    \end{tabular}
+    \end{table}
+\end{code}
+
+与figure一样，table环境也是浮动体，常用!ht来表明位置。caption、label的意义都与figure环境相同。
+
+而画表格的tabular环境则与array环境几乎相同，只是在每行之间可以用\textbackslash{}hline和\textbackslash{}hline这些命令来画横线。c代表一个居中对齐的列，l代表靠左对齐，r代表靠右对齐。
+有竖线的例子：
+\begin{table}[!ht]
+\label{tab:table2}
+\caption{表格示例2}
+\centering
+\begin{tabular}{ Ic|c|c|cI}
+\whline 一列 & 两列 & 三列 & 四列  \\\hline
+1 & 2 &3 &4 \\\hline 2 & 3 &4 &5 \\\hline3 & 4 &5 &6 \\
+\whline
+\end{tabular}
+\end{table}
+\begin{code}
+    \begin{table}[!ht]
+    \label{tab:table2}
+    \caption{表格示例2}
+    \centering
+    \begin{tabular}{ Ic|c|c|cI}
+        \whline 一列 & 两列 & 三列 & 四列  \\\hline
+        1 & 2 &3 &4 \\\hline 2 & 3 &4 &5 \\\hline3 & 4 &5 &6 \\
+        \whline
+    \end{tabular}
+    \end{table}
+\end{code}
+
+即竖线是|，粗竖线是大写字母I，横线是\textbackslash hline，粗横线是\textbackslash whline。

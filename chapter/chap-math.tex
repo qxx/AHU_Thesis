@@ -1,0 +1,241 @@
+﻿
+\chapter{数学公式}
+\label{chap:math}
+数学公式需在数学环境中排版。数学环境一般分\textit{正文公式}和\textit{显示公式}。正文公式用\verb|$...$|表示，而显示公式则用equation,align等数学环境。简单的几个例子：
+\begin{figure}[ht]
+\centering
+\fbox{\begin{minipage}[h]{0.4\textwidth}
+这是一个显示公式：
+    \begin{equation}
+    x+y=z
+    \end{equation}
+谢谢。
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+这是一个显示公式：
+\begin{equation}
+x+y=z
+\end{equation}
+谢谢。
+\end{code}
+\end{minipage}
+\caption{显示公式}
+\end{figure}
+\begin{figure}[h]
+\centering
+\fbox{\begin{minipage}[c]{0.4\textwidth}
+大家好，$e^{\pi i}+1=0$是我最喜欢的方程。
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+大家好，$e^{\pi i}+1=0$是我最喜欢的方程。
+\end{code}
+\end{minipage}
+\caption{正文公式}
+\end{figure}
+
+常用的显示公式环境有：
+\begin{itemize}
+\item{equation}：最常用的公式环境。
+\item{displaymath}：与equation的差别在于不会被自动编号。\\
+\verb|\begin{displaymath}...\end{displaymath}|可以用\verb|\[...\]|来代替。
+\item{align}：适用于排版多个需要对齐的公式。
+\end{itemize}
+
+
+\section{数学公式排版基础}
+上下标、希腊字母、加减乘除等常用符号：
+\begin{center}
+\begin{tabular}{ccll}
+\whline
+& 命令 & 例子 & 代码\\
+\hline
+上标 & \^{} & $x^2$ & \verb|$x^2$|\\
+下标 & \_{} & $x_2$ & \verb|$x_2$|\\
+希腊字母 & 对应的英文 & $\pi,\rho,\sigma,...$ &\verb|$\pi,\rho,\sigma,...$|\\
+点乘 & \verb|\cdot| & $x\cdot y$ & \verb|$x\cdot y$|\\
+叉乘 & \verb|\times| & $x\times y$ & \verb|$x\times y$|\\
+分数 & \verb|\frac{}{}| & $\frac{abc}{def}$ &\verb|$\frac{abc}{def}$|\\
+根号 & \verb|\sqrt[n]{}|  & $\sqrt{x},\sqrt[3]{y}$ &\verb|$\sqrt{x},\sqrt[3]{y}$|\\
+积分 &\verb|\int|  & $\int,\iint,\iiint$ & \verb|$\int,\iint,\iiint$|\\
+\whline
+\end{tabular}
+\end{center}
+表中，\$代表数学环境。在equation等环境中排版时，不再需要使用\$符号。
+
+更多的符号，请点击WinEdt面板上的$\Sigma$符号（TeX Symbols GUI），在弹出的面板中查找。
+
+当控制符作用于多个字符时，需要用大括号将这些字符都括起来，如
+\begin{center}
+\begin{tabular}{c c}
+\whline
+例子 & 代码\\
+\hline
+$e^{\pi i}+1=0$ & \verb|e^{\pi i}+1=0|\\
+$x_{12}^{3}$ & \verb|x_{12}^{3}|\\
+${x_{12}}^{3}$ & \verb|{x_{12}}^{3}|\\
+\whline
+\end{tabular}
+\end{center}
+
+\section{控制字体}
+本科学位论文对于公式内字体的使用有严格的规定。一般变量用白斜体，常量和特殊函数等用白正体，矢量用黑斜体，张量用黑正体。改变字体的命令如下表：
+\begin{center}
+\begin{tabular}{c c l l}
+\whline
+& 字体 & 例子 & 代码\\
+\hline
+一般变量 & 白斜体 & $x$ & \verb|$x$|\\
+常量  & 白正体 & $\mathrm{c}$  & \verb|$\mathrm{c}$|\\
+矢量  & 黑斜体 & $\bm{B}$ & \verb|$\bm{B}$|\\
+张量  & 黑正体 & $\mathbf{H}$ & \verb|$\mathbf{H}$|\\
+\whline
+\end{tabular}
+\end{center}
+表中，\$代表数学环境。在equation等环境中排版时，不再需要使用\$符号。
+
+\section{括号}
+中括号、小括号和竖线可以用键盘上对应的键来输入。大括号是\LaTeX{}中的控制符，必须用\verb|\{...\}|来输入。态函数所用的尖括号是\verb|\langle|和\verb|\rangle|。一个句点代表一个不显示的括号。
+
+使用\verb|\left|和\verb|\right|可以自动控制括号的大小。使用时，将所需要用的括号紧跟在\verb|\left|或\verb|\right|后面就好。例如：
+\begin{figure}[ht]
+\centering
+\fbox{\begin{minipage}[h]{0.8\textwidth}
+    \[
+    \left[\frac{\left(\frac{abc}{def}+ghi\right)\cdot jkl}{mno}+pqr\right]\times st=0
+    \]
+\end{minipage}}\\
+\vskip10pt
+\begin{minipage}[h]{0.8\textwidth}
+\centering
+\begin{code}
+\[
+\left[\frac{\left(\frac{abc}{def}+ghi\right)\cdot jkl}{mno}+pqr\right]
+\times st=0
+\]
+\end{code}
+\end{minipage}
+\caption{括号。\textbackslash[和\textbackslash]代表displaymath环境，下同。}
+\end{figure}
+
+
+
+使用括号时，不一定要用相同的括号来匹配。甚至可以用\verb|\left.|这样不被显示括号来匹配正常括号，以达到排版目的。如
+\begin{figure}[h]
+\centering
+\fbox{\begin{minipage}[h]{0.4\textwidth}
+\[\left|\psi\right\rangle\]
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+\[\left|\psi\right\rangle\]
+\end{code}
+\end{minipage}\\
+\vskip10pt
+\fbox{\begin{minipage}[h]{0.4\textwidth}
+\[\left\{
+\begin{array}{c}
+a\\b\\c
+\end{array}
+\right.\]
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+\[\left\{\begin{array}{c}
+a\\b\\c
+\end{array}\right.\]
+\end{code}
+\end{minipage}
+\caption{不同括号的匹配}
+\end{figure}
+
+\section{矩阵}
+输入矩阵一般使用array环境。
+
+矩阵中使用\verb|&|来分位，\verb|\\|来分行。array环境的参数指定了列的数量和每列的对齐方式。c代表一个居中对齐的列，l是靠左对齐，r则是靠右对齐。图\ref{f:matrix}是一个简单的例子。
+\begin{figure}[h]
+\centering
+\fbox{\begin{minipage}[h]{0.4\textwidth}
+\[\left[
+\begin{array}{c c c}
+C_{Xx} & C_{Yx} & C_{Zx}\\
+C_{Xy} & C_{Yy} & C_{Zy}\\
+C_{Xz} & C_{Yz} & C_{Zz}
+\end{array}
+\right]\]
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+\[\left[\begin{array}{c c c}
+C_{Xx} & C_{Yx} & C_{Zx}\\
+C_{Xy} & C_{Yy} & C_{Zy}\\
+C_{Xz} & C_{Yz} & C_{Zz}
+\end{array}\right]\]
+\end{code}
+\end{minipage}
+\caption{矩阵}
+\label{f:matrix}
+\end{figure}
+
+array环境可以自嵌套，达到输入复杂矩阵的目的。
+
+\section{对齐的多行公式}
+align环境提供了书写多行公式，并指定其在某一位置对齐的功能，使用\&来代表对齐点。如图\ref{f:align}。其中，\verb|\notag| 表示不对这一行公式进行编号。
+\begin{figure}[h]
+\centering
+\fbox{\begin{minipage}[b]{0.8\textwidth}
+\begin{align}
+a_0&=(A_1+A_2+A_3)/3\textrm{g}_e\beta_e\\
+b_0&=[A_1-(A_2+A_3)/2]/3\textrm{g}_e\beta_e\notag\\
+c_0&=(|A_2|-|A_3|)/2\textrm{g}_e\beta_e
+\end{align}
+\end{minipage}}\\
+\begin{minipage}[b]{0.8\textwidth}
+\centering
+\begin{code}
+\begin{align}
+a_0&=(A_1+A_2+A_3)/3\textrm{g}_e\beta_e\\
+b_0&=[A_1-(A_2+A_3)/2]/3\textrm{g}_e\beta_e\notag\\
+c_0&=(|A_2|-|A_3|)/2\textrm{g}_e\beta_e
+\end{align}
+\end{code}
+\end{minipage}
+\caption{多行公式}
+\label{f:align}
+\end{figure}
+
+\section{定理，证明，和其他环境}
+ustcthesis中提供了定理，证明等一些其他环境。环境和名称如下表：
+\begin{center}
+\begin{tabular}{l l @\qquad l l}
+\whline
+环境名 & 中文名 &环境名 & 中文名\\
+\hline
+theorem & 定理&
+lemma&引理\\
+example&例&
+algorithm&算法\\
+definition&定义&
+axiom&公理\\
+property&性质&
+proposition&命题\\
+corollary&推论&
+remark&注解\\
+condition&条件&
+conclusion&结论\\
+assumption&假设&
+prove&证明\\
+\whline
+\end{tabular}
+\end{center}

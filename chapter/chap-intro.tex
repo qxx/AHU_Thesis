@@ -1,0 +1,107 @@
+﻿
+\chapter{引言：\CTeX 系统的安装和使用}
+\label{chap:introduction}
+
+本模板（ustcthesis.cls）是按照教务处的本科论文要求做出的\LaTeX 模板，作者为XPS。\par
+本文是使用上述模板生成的示例文档，目的在于帮助使用者熟悉该模板的使用方法，并且方便使用者学位论文的撰写。
+
+\section{系统要求，\CTeX 安装}
+本文只针对Windows环境下\CTeX 套装。至于Linux使用者，我觉得你们有能力解决自己的问题。\par
+如果电脑上尚未安装\LaTeX 系统，那么到\href{http://www.ctex.org/}{CTeX.org}下载最新完整版\CTeX 套装，并安装之。\par
+此模板只支持UTF-8编码。将其他编码的文件转化为UTF-8的方法是: 用记事本打开这些文件, 然后点击文件—另存为—在最下方选择UTF-8 编码。在WinEdt中首次保存时，选择save as...，弹出的窗口中保存类型选择:UTF-8即可。
+
+
+\section{WinEdit界面介绍和使用}
+\CTeX 套装试用WinEdt作为默认编辑器，什么都配置好了，很方便，推荐使用。
+
+打开\CTeX 套装内的WinEdit编辑器，可以看到如图\ref{f:winedit}的界面。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{winedit.jpg}
+\caption{WinEdt界面}
+\label{f:winedit}
+\end{figure}
+
+其中，中部的大块白色背景的区域就是键入文章内容的编辑区。编辑区上方的一条工具栏上有所有当前打开的文件的标签，单击即可跳转到对应文件。标签栏上方是面板，上面有一些很常用的工具按钮，鼠标悬停可以看到按钮名称。下面我们来看其中的几个。在使用本模板时，将会用到这些按钮。
+\begin{itemize}
+\item \includegraphics{open.jpg}\\
+新建和打开按钮。
+\item \includegraphics{mainfile.jpg}\\
+单击左侧的按钮可设置主文件，单击右侧的取消主文件。
+\item \includegraphics{mathhelp.jpg}\\
+单击可以分别打开TeX SYMBOLS GUI(用于输入数学公式)和ASCII字符表。
+\item \includegraphics{compile.jpg}\\
+编译区，我们需要使用的是上排第二个，第五个和下排第三个，即\XeLaTeX ，BibTeX和 Reader。
+\end{itemize}
+
+一般的写作流程是：准备好要写的文字和要插入的图片------在编辑区内输入文字------用各种\LaTeX 命令控制文章格式（第\ref{c：main}章），插入数学公式（第\ref{chap:math}章）、表格（第\ref{chap:tab}章）、图片（第\ref{chap:fig}章）等------编译(\ref{s:compile})------查看结果------修改，再编译------满意的文章。
+
+
+\section{编译和调试方法}
+\label{s:compile}
+本模板需要使用\XeLaTeX 编译，切换到main.tex，点击面板上对应的按钮即可。如果你觉得每次都切过来很浪费时间，那么可以换到main.tex，并单击WinEdit工具栏上Set Main File按钮。这样的话以后每次编译都自动从main.tex开始，可以省掉不少麻烦。
+
+如果编译出错，即停在某一位置不动了，且有问号提示符让使用者输入的话，那么按e回车，可以自动跳转到出错位置进行查看。出错的种类五花八门无法一一列举，但是一般都有详细的提示，如果有实在没法修正的可以到BBS TeX板提问。
+
+编译通过之后，可以点工具栏上的Adobe按钮，打开预览。在CTeX2.8套装的WinEdit中，会弹出SumatraPDF，在这个窗口中，看到不合意的地方可以双击回到源文件的相应位置，逆向搜索到原文中的对应位置进行修改，还是比较方便的。\par
+
+\begin{example}{Hello World}\\
+将以下内容复制到新文件中，保存为\TeX 文件，编译，然后按Adobe按钮预览结果。
+\begin{code}
+    \documentclass{article}
+    \begin{document}
+        Hello world!
+    \end{document}
+\end{code}
+\end{example}
+
+
+为了得到正确的目录、交叉引用、参考文献等信息，需要编译两到三遍，正确的流程如下：
+\begin{enumerate}
+\item \XeLaTeX 编译一次。
+\item BibTex编译一次。
+\item \XeLaTeX 编译两到三次。
+\end{enumerate}
+在本示例文档中，提供了make.bat，双击之即可完成以上工作。
+
+
+
+\section{目录内容}
+本文的源文件即为使用的模板，用户可以通过修改这些文件来编辑自己的毕业论文。
+\begin{itemize}
+\item{main.tex}：主文件，包含封面部分和其他章节的引用信息。
+\item{chapters目录}:包含本文的所有章节。
+\begin{itemize}
+\item{abstract.tex}:摘要部分的源文件，包含中英文摘要的使用。
+\item{chap-intro.tex}:本章的源文件，包含使用方法的说明。
+\item{chap-body.tex}:正文写作入门。主要介绍\LaTeX 基础知识。
+\item{chap-figure.tex}:包含图片的引用方法。
+\item{chap-table.tex}:包含表格的示例。
+\item{chap-math.tex}:包含数学公式排版的基础知识。
+\item{chap-app.tex}:附录。
+\item{thanks.tex}包含致谢部分。
+\end{itemize}
+\item{figures目录}：存放文章内所用的图像文件。
+\item{bib/tex.bib}：参考文献信息。
+\end{itemize}
+需要特别说明的是，这些文件名并不是固定的，你可以新建一个tex文件，例如zhangsan.tex，放在chapters目录下，并且在main.tex中使用
+\begin{code}
+    \include{chapters/zhangsan.tex}
+\end{code}
+来引用之。当然你也可以重命名这些文件，只要include中的文件名是存在的，\LaTeX 总能找到这些文件的。
+
+在你写作某一章节的时候，你可能需要随时预览排版效果并debug，这时你可以在其他章节的\verb|\include|命令前加上一个\%，这代表注释掉本行，例如：
+\begin{code}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% 正文部分
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \mainmatter
+      \include{chapter/chap-intro}
+    %  \include{chapter/chap-figure}
+    %  \include{chapter/chap-table}
+    %  \include{chapter/chap-math}
+    %  \include{chapter/chap-faq}
+\end{code}
+那么，编译的时候就只编译未加\%的一章，在这个例子中，即本章。
+
+理论上，并不一定要把每章放在不同的文件中，但是这种分章节写作、编译的方法有利于提高效率，大大减少debug过程中的编译时间，同时减小风险。 

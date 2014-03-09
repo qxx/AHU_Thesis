@@ -1,0 +1,42 @@
+\chapter{参考文献的使用}
+\label{c:bib}
+
+本模板使用bibtex来管理参考文献。在BibTeX中，典型的参考文献信息如下：
+\begin{code}
+    @book{deng:01,
+        author =       {{邓建松,~彭冉冉,~陈长松}},
+        title =        {\LaTeXe{}~科技排版指南},
+        publisher =    {科学出版社,~书号:~7-03-009239-2/TP.1516},
+        year =         {2001},
+        address =      {北京},
+    }
+\end{code}
+
+其中，第一行的\@book指明了文献的类别；deng:01是引用时的标号，可以随意。在大括号之内则指明了参考文献信息，大家可以望文生义。在正文中参考文献的方法如下：
+\begin{figure}[h]
+\centering
+\fbox{\begin{minipage}[t]{0.4\textwidth}
+引用示例\cite{deng:01}
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+\begin{code}
+引用示例\cite{deng:01}
+\end{code}
+\end{minipage}
+\end{figure}
+
+引用时还有许多选择，如下：\\
+\begin{center}
+\begin{tabular}{ll}
+\whline
+\verb|\citet{deng:01}|  &   \citet{deng:01}\\
+\verb|\citep[p.~99]{deng:01}|&  \citep[p.~99]{deng:01}\\
+\verb|\citep[e.g.][]{deng:01}|& \citep[e.g.][]{deng:01}\\
+\verb|\citep[e.g.][p.~99]{deng:01}| &\citep[e.g.][p.~99]{deng:01}\\
+\verb|\citeauthor{deng:01}|& \citeauthor{deng:01}\\
+\verb|\citeyear{deng:01}|&\citeyear{deng:01}\\
+\whline
+\end{tabular}
+\end{center} 

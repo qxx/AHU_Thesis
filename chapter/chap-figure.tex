@@ -1,0 +1,110 @@
+﻿
+\chapter{图形}
+\label{chap:fig}
+
+
+\section{浮动图形}
+
+\XeLaTeX 支持jpg和eps格式的图片。我们所用的编译方法支持jpg和eps等格式的图片。如果你已经有一篇word文档，
+想把其中的图全部导出，那么可以将它另存为html文件，这时会在同目录下找到一个文件夹，里面是所有用到的图片。
+
+将插图放在figures文件夹中，想要引用的地方使用类似这样的命令插入图形文件：
+\begin{code}
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}
+ \caption{中国科学技术大学校徽（在页面中间）}
+ \label{fig:ustc1}
+\end{figure}
+\end{code}
+结果如下：
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}
+ \caption{中国科学技术大学校徽（在页面中间）}
+ \label{fig:ustc1}
+\end{figure}
+
+在上面这段命令中，可选参数[!ht]代表插图的位置。其中!让\LaTeX{}忽略审美标准，试图用最严格的标准来放置浮动图形；h(ere)代表有限放在此处；t(op)代表如果此处放不下，那么放在下一页页首。
+
+width=0.2\textbackslash{}textwidth代表图形的宽度是文字宽度的0.2倍，你也可以使用其他长度单位，如12cm，4.5in等等。
+
+caption命令的参数代表图的名称，或者说注解。label的参数用于交叉引用，见下节。
+
+
+\section{交叉引用}
+通过使用交叉引用功能，我们可以定位那些\LaTeX{}自动编号的内容，比如浮动图形、表格、章节等等。其中，label和ref的参数是引用的名字，可以随意，但须保持一致。
+\begin{figure}[ht]
+\centering
+\fbox{\begin{minipage}[h]{0.4\textwidth}
+引用图\ref{fig:ustc1}\\
+引用第\ref{chap:introduction}章
+\end{minipage}}
+\hspace{0.1\textwidth}
+\begin{minipage}[h]{0.4\textwidth}
+\centering
+\begin{code}
+引用图\ref{fig:ustc1}\\
+引用第\ref{chap:introduction}章
+\end{code}
+\end{minipage}
+\caption{交叉引用示例}
+\end{figure}
+
+
+\section{并列的子图}
+使用subfigure命令，一个例子：
+\begin{figure}[!hbt]
+\centering
+\subfigure[sf 1]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:1}}
+\subfigure[sf 2]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:2}}
+\subfigure[sf 3]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:3}}
+\subfigure[sf 4]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:4}}
+\caption{\label{f:s}subfigure使用示例。}
+\end{figure}
+\begin{code}
+\begin{figure}[!hbt]
+\centering
+\subfigure[sf 1]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:1}}
+\subfigure[sf 2]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:2}}
+\subfigure[sf 3]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:3}}
+\subfigure[sf 4]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:4}}
+\caption{\label{f:s}subfigure使用示例。}
+\end{figure}
+\end{code}
+
+分两行放：
+\begin{figure}[!hbt]
+\centering
+\subfigure[sf 1]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:1}}
+\subfigure[sf 2]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:2}}\\
+\subfigure[sf 3]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:3}}
+\subfigure[sf 4]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:4}}
+\caption{\label{f:s}subfigure使用示例。}
+\end{figure}
+\begin{code}
+\begin{figure}[!hbt]
+\centering
+\subfigure[f 1]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:1}}
+\subfigure[f 2]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:2}}\\
+\subfigure[f 3]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:3}}
+\subfigure[f 4]{
+\includegraphics[width=0.2\textwidth]{ustc_logo_new.eps}\label{f:4}}
+\caption{\label{f:l}分行的字图使用示例。}
+\end{figure}
+\end{code}

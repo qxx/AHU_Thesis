@@ -1,0 +1,93 @@
+%\documentclass[capnocolon,titlechinese]{ahuthesis}
+\documentclass[capnocolon,titleahuart]{ahuthesis}
+\usepackage{metalogo}
+%\usepackage{floatrow}
+\usepackage{verbatim}
+
+% 设置图形文件的搜索路径
+\graphicspath{{chapter/}{figures/}}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 封面内容
+  %当中文标题过长时可以将多余的标题放在\titletail{}中
+  \title{安徽大学}
+  \titletail{本科毕业论文模板示例文档}
+  \entitle{An example article of the AHU-Thesis Template for Undergraduate Students}
+  %全角空格可以正常输出
+  \author{小　明}
+  \enauthor{Ming Xiao}
+  \department{哲学系}
+  \No{1012345678}
+  \tutor{张　三}
+  \entutor{Prof. San Zhang}
+  \cntime{二〇一四年　三月}
+  \entime{May,2011}
+  \major{哲学}
+  \enrolltime{二〇一〇年　九月}
+  \tutordegree{教授}
+  \tutordepartment{哲学系}
+
+
+  %  %生成封面（USTC制本厂要求的格式，AHU不需要此选项）
+  %  \makecover
+
+  %生成USTC格式的中英文合并的扉页
+  \maketitle
+
+  %  %生成中英文分开的扉页 %安徽大学模板暂不支持此项
+  %  \makeseparatetitle
+
+  %生成安徽大学格式的扉页
+  \makeahutitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+%  % 致谢 %根据安徽大学格式要求，致谢应在文末
+%  \include{chapter/thanks}
+  
+  % 题目、摘要、关键词
+  \include{chapter/abstract}
+  % 目录
+  \tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\include{chapter/chap_test}  
+\include{chapter/user_guid}
+  \include{chapter/chap-intro}
+  \include{chapter/chap-body}
+   \include{chapter/chap-math}
+   \include{chapter/chap-figure}
+   \include{chapter/chap-table}
+  \include{chapter/chap-bib}
+  \include{chapter/chap-faq}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\backmatter
+
+  % 参考文献
+  % 使用 BibTeX
+  \phantomsection
+  \addcontentsline{toc}{chapter}{参考文献}
+  \bibliography{bib/tex}
+  \nocite{*} % for every item
+
+
+  % 附录
+  \begin{appendix}
+    \include{chapter/chap-app}
+  \end{appendix}
+
+  % 致谢
+  \include{chapter/thanks}
+
+\end{document}
