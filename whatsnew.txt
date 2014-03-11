@@ -1,0 +1,81 @@
+%
+% Anhui University Thesis Template for Bachelorn
+%
+%   Based on：
+%       USTC Thesis Template "USTC_Thesis_Bachelor_20120511" 
+%           by XPS@USTC et al.
+%
+%   Created：
+%       2014/03/06  yess@USTC
+%
+更新日志[2014/03/06-2011/03/11]
+1.添加了安徽大学格式的扉页及填入相应的信息的命令：
+1.1.\major{}，学生专业
+1.2.\enrolltime{}，入学时间
+1.3.\tutordegree{}，导师职称/学位
+1.4.\tutordepartment{}，导师单位
+2.提供了文档选项titleahuart和titleahuscience，分别为安徽大学文科和理科的章节标题格式
+3.修改了页面设置，默认单面打印，符合上2.5cm、左2.5cm、右2cm、下2cm的页边距要求，保留对双面打印的兼容性
+4.将\parskip设为0pt，将\baselineskip设为20pt
+5.将致谢、中英文摘要格式修改为安徽大学格式
+6.引入fontspec，将英文摘要字体改为Times New Roman
+7.尝试通过\titlesec包来修改目录、参考文献、附录标题格式，尚未完成
+
+%
+% University of Science and Technology of China Thesis Template for Bachelor
+%
+%   Created：
+%       2010/05/17 ver 0.1 by XPS@USTC
+%   Last Modified：
+%       2012/05/11 by ywg@USTC 
+%
+
+更新日志[2012/5/11]
+1.添加proof环境的中文翻译
+2.修改模板自定义的数学环境中多处错误,这些错误会导致不同的数学环境生成不同的空白
+3.[示例文件]添加对proof以及prove两个数学环境的使用说明
+
+更新日志[2011/10/16-2012/03/22]：
+1.对“学士学位论文”的英文翻译进行修改，去掉Submitted（参考研究生学位论文规范）
+
+2.提供三个新命令L{width}、C{width}、R{width}，对表格环境下p{width}命令进行加强，可以在指定宽度的同时指定对齐方式，分别表示左对齐、居中对齐、右对齐。注意大小写。同时对示例文件进行更新
+
+更新日志[2011/06/03-2011/06/08]：
+1.修正目录中摘要等链接不正确的bug
+2.[示例文件]修正参考文献多余一页时目录链接不正确的bug 
+3.[示例文件]添加一个章节对模板使用方法等进行简要介绍
+
+更新日志[2011/06/02]：
+1.修正摘要等在目录中链接错误的bug
+2.添加了一个小trick，现在致谢、中英文摘要在twoside，openright时能够正确生成空白页
+
+更新日志[2011/05/31]：
+
+1.现在可以直接设置单面或者双面选项而不用修改模板
+
+2.添加常用宏包multirow和multicol
+
+3.提供一个文档选项capnocolon，效果是图表的标题序号后的“：”被去掉
+
+4.提供一个文档选项titlechinese，效果是标题变为 第一章 第一节 一  1.分别对应章，节，小节，小小节
+
+5.提供一个新命令\figcaption{}，效果是无论是否在图形环境中均生成图形标题
+
+6.提供一个新命令\tabcaption{}，效果与上类似，针对表格
+
+7.提供一个新命令\scite{}，效果是将引用的文本由正常文字变为上标文字
+
+8.标题格式实现方式由titlesec宏包改为CTex内置，防止与\paragraph可能产生的冲突
+
+9.提供一个新命令\makeseparatetitle，效果是生成独立的中文与英文扉页
+
+10.提供一个新命令\titletail{}，如果中文标题过长，将多余的标题放在此命令中，以解决9中新命令可能产生的bug，但是没有考虑此情况下标题仍然过长的情况
+
+11.提供一个新命令\cntime{}，自己填写中文时间，而不必修改模板,例如\cntime{二〇一一年五月}
+
+12.提供一个新命令\entime{}，与上类似
+
+13.添加hyperref的\autoref{}命令相关选项，现在可以对非参考文献引用使用\autoref{}命令得到正确的引用名称，例如\autoref{some_pic}将得到“图 X”的引用
+
+
+由于水平所限，更新后模板可能存在bug，恳请大家及时告知。

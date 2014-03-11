@@ -1,25 +1,31 @@
 ﻿%
 % Anhui University Thesis Template for Bachelorn
 %
-%   Based on USTC Thesis Template "USTC_Thesis_Bachelor_20120511" by XPS@USTC et al.
+%   Based on：
+%       USTC Thesis Template "USTC_Thesis_Bachelor_20120511" 
+%           by XPS@USTC et al.
 %
 %   Created：
-%       2014/03/06  yess@USTC
+%       2014/03/06  yess@USTC, for my dearest CTT
 %
 
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{ahuthesis}[2014/03/06]
 
+%去掉图表标题序号中的冒号
 \newif\ifustc@CaptionNoColon\ustc@CaptionNoColonfalse
 \DeclareOption{capnocolon}{\ustc@CaptionNoColontrue}
 
+%章节标题格式以下三选一
+%USTC中文格式
 \newif\ifustc@TitleChinese\ustc@TitleChinesefalse
 \DeclareOption{titlechinese}{\ustc@TitleChinesetrue}
+%AHU文科格式
 \newif\ifahu@TitleArt\ahu@TitleArtfalse
 \DeclareOption{titleahuart}{\ahu@TitleArttrue}
+%AHU理科格式
 \newif\ifahu@TitleScience\ahu@TitleSciencefalse
 \DeclareOption{titleahuscience}{\ahu@TitleSciencetrue}
-
 
 %现在可以设置单面或者双面选项
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
@@ -50,6 +56,8 @@
 \RequirePackage{xcolor}
 \RequirePackage{multicol}
 \RequirePackage{multirow}
+\RequirePackage{fontspec}
+%\RequirePackage{titletoc}
 
 %Caption no colon
 \ifustc@CaptionNoColon
@@ -278,7 +286,7 @@
   \null
   \begin{center}%
     {\xiaochuhao\songti\textbf{安徽大学}\\\vskip 1cm
-     \xiaochuhao\songti\textbf{本科毕业论文（设计、创作）}\\ \par}%
+     \xiaochuhao\songti\textbf{本科毕业论文}\\ \par}%
   \vskip 5cm
   \ifx\@titletail\@empty\vskip 1cm\else\fi
   {\large
@@ -314,6 +322,7 @@
   headheight=0.6cm, 
   footnotesep=0.8cm,
   footskip=1cm,
+  textheight=22.5cm,
   hmargin=2.0cm,
   bindingoffset=0.5cm
   %twosideshift=0 pt,
@@ -322,12 +331,12 @@
 
 %lengths
 \setlength{\parindent}{2\ccwd}
-\setlength{\parskip}{3pt plus1pt minus2pt}
-\setlength{\baselineskip}{22pt plus1pt minus1pt}
-%\setlength{\textheight}{21true cm}
+\setlength{\parskip}{0pt}
+\setlength{\baselineskip}{20pt}
 \setlength{\headsep}{1 cm}
 \setlength{\textwidth}{16.5true cm} 
-\setlength{\belowcaptionskip}{5pt}
+\setlength{\belowcaptionskip}{0pt}
+%\setlength{\abovecaptionskip}{0pt}
 
 %titleformat
 %\titleformat{\section}{\center\bfseries\xiaosanhao}{\thesection}{1em}{}
@@ -337,14 +346,15 @@
 %\titlespacing{\chapter}{0cm}{-.9cm}{.4cm}
 %\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
 
-\CTEXsetup[format={{\centering\sanhao\bfseries}}]{chapter}
-\CTEXsetup[format={{\center\bfseries\xiaosanhao}}]{section}
-\CTEXsetup[format={{\flushleft\bfseries\sihao}}]{subsection}
-\CTEXsetup[format={{\flushleft\bfseries\xiaosihao}}]{subsubsection}
+
 \CTEXoptions[listfigurename={插图索引}]
 \CTEXoptions[listtablename={表格索引}]
 
 \ifustc@TitleChinese
+\CTEXsetup[format={{\centering\sanhao\bfseries}}]{chapter}
+\CTEXsetup[format={{\center\bfseries\xiaosanhao}}]{section}
+\CTEXsetup[format={{\flushleft\bfseries\sihao}}]{subsection}
+\CTEXsetup[format={{\flushleft\bfseries\xiaosihao}}]{subsubsection}
   \CTEXsetup[number={\chinese{chapter}}]{chapter}
   \CTEXsetup[number={\chinese{section}}]{section}
   \CTEXsetup[number={\chinese{subsection}}]{subsection}
@@ -358,6 +368,28 @@
 \fi
 
 \ifahu@TitleArt
+%\CTEXsetup[format={{\centering\heiti\xiaosihao\bfseries}}]{chapter}
+%不知道为什么上面这行不管用，所以用下面两行代替
+\CTEXsetup[nameformat={{\centering\heiti\xiaosihao\bfseries}}]{chapter}
+\CTEXsetup[titleformat={{\centering\heiti\xiaosihao\bfseries}}]{chapter}
+\CTEXsetup[format={{\songti\xiaosihao\bfseries}}]{section}
+\CTEXsetup[format={{\songti\xiaosihao}}]{subsection}
+\CTEXsetup[format={{\songti\xiaosihao}}]{subsubsection}
+\CTEXsetup[format={{\songti\xiaosihao}}]{paragraph}
+\CTEXsetup[beforeskip={0.1pt}]{chapter}
+\CTEXsetup[beforeskip={0.1pt}]{section}
+\CTEXsetup[beforeskip={0.1pt}]{subsection}
+\CTEXsetup[beforeskip={0.1pt}]{subsubsection}
+\CTEXsetup[beforeskip={0.1pt}]{paragraph}
+\CTEXsetup[afterskip={1pt}]{chapter}
+\CTEXsetup[afterskip={0.01pt}]{section}
+\CTEXsetup[afterskip={0.01pt}]{subsection}
+\CTEXsetup[afterskip={0.01pt}]{subsubsection}
+\CTEXsetup[afterskip={0.01pt}]{paragraph}
+\CTEXsetup[indent={2\ccwd}]{section}
+\CTEXsetup[indent={2\ccwd}]{subsection}
+\CTEXsetup[indent={2\ccwd}]{subsubsection}
+\CTEXsetup[indent={2\ccwd}]{paragraph}
   \CTEXsetup[number={\chinese{chapter}}]{chapter}
   \CTEXsetup[number={\chinese{section}}]{section}
   \CTEXsetup[number={\arabic{subsection}}]{subsection}
@@ -371,8 +403,27 @@
 \fi
 
 \ifahu@TitleScience
+%\CTEXsetup[format={{\flushleft\songti\xiaosihao\bfseries}}]{chapter}
+\CTEXsetup[nameformat={{\songti\xiaosihao\bfseries}}]{chapter}
+\CTEXsetup[titleformat={{\songti\xiaosihao\bfseries}}]{chapter}
+\CTEXsetup[format={{\songti\xiaosihao\bfseries}}]{section}
+\CTEXsetup[format={{\songti\xiaosihao}}]{subsection}
+\CTEXsetup[format={{\songti\xiaosihao}}]{subsubsection}
+\CTEXsetup[format={{\songti\xiaosihao}}]{paragraph}
+\CTEXsetup[beforeskip={0.1pt}]{chapter}
+\CTEXsetup[beforeskip={0.1pt}]{section}
+\CTEXsetup[beforeskip={0.1pt}]{subsection}
+\CTEXsetup[beforeskip={0.1pt}]{subsubsection}
+\CTEXsetup[afterskip={0.1pt}]{chapter}
+\CTEXsetup[afterskip={0.1pt}]{section}
+\CTEXsetup[afterskip={0.1pt}]{subsection}
+\CTEXsetup[afterskip={0.1pt}]{subsubsection}
   \CTEXsetup[number={\arabic{chapter}}]{chapter}
-  \CTEXsetip[name={,}]{chapter}
+  \CTEXsetup[name={,}]{chapter}
+  \CTEXsetup[aftername={$\quad$}]{chapter}
+  \CTEXsetup[aftername={$\quad$}]{section}
+  \CTEXsetup[aftername={$\quad$}]{subsection}
+  \CTEXsetup[aftername={$\quad$}]{subsubsection}
 \fi
 
 
@@ -455,14 +506,25 @@
 %小trick，让新环境在oneside和twoside时均能够生成正确的页面，即双面时openright可以正确生成空白页，下同
         \chapter*{~~}
         \vspace{-150pt}
+        \addcontentsline{toc}{chapter}{Abstract}
         \begin{center}%
+	  \setlength{\baselineskip}{20pt}
+	  \vskip 4.5cm
+	  {\fontspec{Times New Roman}\bfseries\sihao{$\qquad$\@entitle$\qquad$}}\\
+	\vskip 20pt
           \phantomsection
-          \addcontentsline{toc}{chapter}{Abstract}
-          {\bfseries\xiaoerhao \abstractname\vspace{.5em}\vspace{\z@}}%
+	  \setlength{\baselineskip}{16pt}
+	  %{\fontspec{Times New Roman}\bfseries\sihao \abstractname\vspace{.5em}\vspace{\z@}}%
+          {\fontspec{Times New Roman}\bfseries\sihao \abstractname}
         \end{center}%
-        \quotation
+	\fontspec{Times New Roman}\wuhao\quotation
       \fi}
-      {\if@twocolumn\else\endquotation Keywords:$\quad$\@keywords\fi}
+      {\if@twocolumn\else\endquotation 
+        \vskip 16pt
+	{\fontspec{Times New Roman}\bfseries\xiaosihao{$\qquad$Keywords:$\quad$\@keywords}}
+	\setlength{\baselineskip}{20pt}
+	\fi}
+
       
   \newenvironment{cnabstract}{%
   %\newpage  
@@ -472,19 +534,22 @@
         \small
         \chapter*{~~~}
         \vspace{-150pt}
-        \begin{center}%
+        \addcontentsline{toc}{chapter}{\texorpdfstring{摘$\quad$要}{摘要}}
+	\begin{center}%
+		\vskip 4.5cm
 		\heiti\sanhao\textbf{$\qquad$\@title\ifx\@titletail\@empty\else\@titletail\fi$\qquad$}\\
-	\vskip 0.5cm	  
+	\vskip 20pt	  
           \phantomsection
-          \addcontentsline{toc}{chapter}{\texorpdfstring{摘$\quad$要}{摘要}}
-          {\bfseries\sihao \cnabstractname\vspace{.5em}\vspace{\z@}}%
+	  \setlength{\baselineskip}{16pt}
+          %{\bfseries\sihao \cnabstractname\vspace{.5em}\vspace{\z@}}%
+	 {\bfseries\sihao \cnabstractname}%
         \end{center}%
-	\setlength{\baselineskip}{16pt}
 	\wuhao\fangsong\quotation
       \fi}
       {\if@twocolumn\else\endquotation
-      \setlength{\baselineskip}{22pt plus1pt minus1pt}
+	\vskip 16pt
       \xiaosihao\songti\textbf{$\qquad$关键字:$\quad$\@cnkeywords}
+      \setlength{\baselineskip}{20pt}
       \fi}
       
   \newenvironment{thankspage}{%
@@ -498,9 +563,12 @@
         \begin{center}%
           \phantomsection
           \addcontentsline{toc}{chapter}{\texorpdfstring{致$\quad$谢}{致谢}}
-          {\bfseries\xiaoerhao \thankspagename\vspace{-.5em}\vspace{\z@}}%
-        \end{center}%
-        \wuhao\fangsong\quotation
+	  \setlength{\baselineskip}{20pt}
+	  \vskip 4.5cm
+	  %{\bfseries\xiaoerhao \thankspagename\vspace{-.5em}\vspace{\z@}}%
+	  {\bfseries\sihao\heiti \thankspagename}%      
+	\end{center}%
+        \xiaosihao\songti\quotation
       \fi}
       {\if@twocolumn\else\endquotation\cleardoublepage\fi}
       

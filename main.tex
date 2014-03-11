@@ -1,8 +1,16 @@
-%\documentclass[capnocolon,titlechinese]{ahuthesis}
-\documentclass[capnocolon,titleahuart]{ahuthesis}
+% capnocolon用于去掉图表标题中的冒号；
+% titleahuart为AHU文科的章节标题格式，
+%   理科请将titileahuart改为titleahuscience，
+%   若要使用USTC格式请改为titlechinese；
+% oneside, openany为单面选项，
+%   若要双面且章节从奇数页开始，
+%   请改为twoside, opentight；
+\documentclass[capnocolon,titleahuart,oneside,openany]{ahuthesis}
+
 \usepackage{metalogo}
 %\usepackage{floatrow}
 \usepackage{verbatim}
+\usepackage{titlesec}
 
 % 设置图形文件的搜索路径
 \graphicspath{{chapter/}{figures/}}
@@ -11,7 +19,7 @@
 %% 封面部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % 封面内容
-  %当中文标题过长时可以将多余的标题放在\titletail{}中
+  % 当中文标题过长时可以将多余的标题放在\titletail{}中
   \title{安徽大学}
   \titletail{本科毕业论文模板示例文档}
   \entitle{An example article of the AHU-Thesis Template for Undergraduate Students}
@@ -30,13 +38,14 @@
   \tutordepartment{哲学系}
 
 
-  %  %生成封面（USTC制本厂要求的格式，AHU不需要此选项）
+  % 生成封面（USTC制本厂要求的格式，AHU不需要此选项）
   %  \makecover
 
-  %生成USTC格式的中英文合并的扉页
+  % 生成USTC格式的中英文合并的扉页，AHU可以使用
   \maketitle
 
-  %  %生成中英文分开的扉页 %安徽大学模板暂不支持此项
+  % 生成带USTC校徽的中英文分开的扉页
+  % 安徽大学模板暂不支持此项
   %  \makeseparatetitle
 
   %生成安徽大学格式的扉页
@@ -59,7 +68,6 @@
 %% 正文部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
-\include{chapter/chap_test}  
 \include{chapter/user_guid}
   \include{chapter/chap-intro}
   \include{chapter/chap-body}
@@ -84,6 +92,8 @@
 
   % 附录
   \begin{appendix}
+    %这里还需要修改
+    %\titleformat*{\chapter}{}
     \include{chapter/chap-app}
   \end{appendix}
 
